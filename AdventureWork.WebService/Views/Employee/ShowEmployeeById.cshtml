@@ -1,0 +1,36 @@
+﻿@model IEnumerable<AdventureWork.Core.Entity.EmployeeAttendance>
+@{
+    ViewBag.Title = "ShowEmployeeById";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ShowEmployeeById</h2>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Check In Time</th>
+            <th>Check out Time</th>
+            <th>Duration</th>
+        </tr>
+    </thead>
+    @if (Model.Count() == 0)
+    {
+        <h2>No Information Found!</h2>
+    }
+    @foreach (var item in Model)
+    {
+        <tr>
+
+
+            <td>@item.EmployeeId</td>
+            <td>@item.CheckIn</td>
+            <td>@item.CheckOut</td>
+            <td>@item.Duration</td>
+
+        </tr>
+    }
+</table>
+   
+
+

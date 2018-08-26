@@ -1,0 +1,35 @@
+﻿@model List<AdventureWork.Core.Entity.EmployeeInfo>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Employee List</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Employee Name</td>
+            <td>Email</td>
+            <td>Actions</td>
+        </tr>
+    </thead>
+    @foreach (var row in Model)
+    {
+    <tr>
+
+        <td>@Html.ActionLink(row.FullName, "ShowEmployeeById", new { Id = row.Id }) </td>
+        <td>@row.Email</td>
+        <td>@Html.ActionLink("Delete", "DeleteEmployee", new { Id = row.Id })  |   @Html.ActionLink("Edit", "EditEmployee", new { Id = row.Id }) </td>
+
+
+
+
+    </tr>
+    }
+</table>
+
+@using (Html.BeginForm("BtnAction", "Employee"))
+{
+<input type="submit" class="btn" value="Add New Employee" />
+ }
+
